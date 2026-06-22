@@ -1,0 +1,44 @@
+.ap-grid { display:grid; grid-template-columns:1fr 1.15fr; gap:90px; align-items:center; }
+.ap-imgs { position:relative; }
+
+/* ⬇️ TAILLE DE LA PHOTO MODIFIÉE ICI (Anciennement 520px) */
+.ap-main { 
+  width: 100%; 
+  max-width: 450px; 
+  aspect-ratio: 2/4; 
+  object-fit: cover; 
+  object-position: right center; 
+  box-shadow: var(--sh-lg); 
+}
+
+.ap-badge {
+  position:absolute; top:28px; left:-28px;
+  background:var(--black); border:1px solid rgba(163,118,61,.4);
+  padding:22px 20px; text-align:center;
+  box-shadow:0 12px 40px rgba(0,0,0,.4), 0 0 0 1px rgba(163,118,61,.15);
+}
+.ap-badge::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--gold),var(--gold-xl)); }
+.ap-n { font-family:'Playfair Display',serif; font-size:38px; font-weight:900; color:var(--gold-xl); line-height:1; }
+.ap-t { font-size:8.5px; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.6); font-weight:700; margin-top:3px; }
+.ap-quote { font-family:'Cormorant Garamond',serif; font-size:18px; font-style:italic; color:var(--black); margin:20px 0 18px; line-height:1.65; padding-left:20px; border-left:3px solid var(--gold); }
+.ap-body { font-size:14px; color:var(--muted); line-height:1.88; margin-bottom:14px; }
+.vals { display:flex; gap:12px; margin-top:34px; flex-wrap:wrap; }
+.val {
+  display:flex; align-items:center; gap:10px; padding:11px 16px;
+  background:var(--black); border:1px solid rgba(163,118,61,.2);
+  cursor:default; transition:all .3s;
+}
+.val:hover { background:linear-gradient(135deg,var(--gold-l),var(--gold)); border-color:var(--gold); box-shadow:var(--sh-gold); }
+.vi { font-size:16px; }
+.vt { font-size:10.5px; font-weight:800; color:var(--gold-xl); text-transform:uppercase; letter-spacing:.1em; transition:color .3s; }
+.val:hover .vt { color:var(--black); }
+
+/* ⬇️ RESPONSIVE AJUSTÉ POUR MATCH AVEC LA NOUVELLE TAILLE */
+@media(max-width:1100px){ 
+  .ap-grid { grid-template-columns:1fr; gap:60px; } 
+  .ap-imgs { max-width: 340px; margin: 0 auto; } /* Réduit de 420px à 340px */
+}
+@media(max-width:600px){ 
+  .ap-thumb { width:130px; height:130px; } 
+  .ap-badge { left:-14px; } 
+}

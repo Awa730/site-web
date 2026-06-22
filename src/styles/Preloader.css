@@ -1,0 +1,35 @@
+#preloader {
+  position:fixed; inset:0; background:var(--black); z-index:9999;
+  display:flex; align-items:center; justify-content:center;
+  flex-direction:column; gap:22px;
+}
+.pre-logo {
+  width:90px; height:90px; border-radius:50%; object-fit:cover;
+  border:3px solid var(--gold);
+  box-shadow:0 0 40px var(--gold-glow);
+  animation:pre-glow 1.8s ease-in-out infinite;
+}
+@keyframes pre-glow {
+  0%,100% { box-shadow:0 0 20px rgba(163,118,61,.3); }
+  50%     { box-shadow:0 0 60px rgba(201,144,58,.7), 0 0 100px rgba(163,118,61,.3); }
+}
+.pre-bar {
+  width:200px; height:2px;
+  background:rgba(163,118,61,.15); border-radius:2px; overflow:hidden;
+}
+.pre-fill {
+  height:100%;
+  background:linear-gradient(90deg, var(--gold), var(--gold-xl), var(--gold));
+  border-radius:2px;
+  animation:pre-fill 1.9s ease forwards;
+}
+@keyframes pre-fill { from{width:0} to{width:100%} }
+.pre-text {
+  font-family:'Playfair Display',serif;
+  color:var(--gold-l); font-size:1rem;
+  letter-spacing:.25em; text-transform:uppercase;
+}
+.pre-sub {
+  font-size:.72rem; letter-spacing:.35em; text-transform:uppercase;
+  color:rgba(163,118,61,.5); font-weight:600;
+}

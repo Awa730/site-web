@@ -1,0 +1,175 @@
+/* ==========================================================================
+   1. SECTION ET TITRES (CONTEXTE SOMBRE / BLACK & GOLD)
+   ========================================================================== */
+
+/* Arrière-plan général de la section Réalisations */
+.real-bg { 
+  background: var(--black); 
+}
+
+/* Petite ligne ou point décoratif à côté du tag de section (couleur Or) */
+.real-bg .s-tag::before { 
+  background: var(--gold); 
+}
+
+/* Titre principal en blanc */
+.real-bg .s-title { 
+  color: var(--white); 
+}
+
+/* Mise en valeur en italique/accentuée dans le titre (couleur Or éclatant) */
+.real-bg .s-title em { 
+  color: var(--gold-xl); 
+}
+
+/* En-tête alignant le titre à gauche et les filtres à droite */
+.real-header { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: flex-end; 
+  margin-bottom: 46px; 
+  flex-wrap: wrap; 
+  gap: 20px; 
+}
+
+/* Container des boutons de filtrage */
+.filters { 
+  display: flex; 
+}
+
+/* ==========================================================================
+   2. BOUTONS DE FILTRAGE
+   ========================================================================== */
+.fbtn {
+  padding: 9px 18px; 
+  background: transparent;
+  border: 1px solid rgba(163, 118, 61, .3); 
+  color: rgba(255, 255, 255, .5); 
+  font-family: 'Nunito', sans-serif; 
+  font-size: 10px; 
+  font-weight: 700;
+  letter-spacing: .16em; 
+  text-transform: uppercase; 
+  cursor: pointer; 
+  transition: all .3s; 
+  margin-right: -1px; 
+}
+
+/* État Actif ou Hover (Survol) sur les boutons */
+.fbtn.active, .fbtn:hover {
+  background: linear-gradient(135deg, var(--gold-l), var(--gold)); 
+  border-color: var(--gold); 
+  color: var(--black); 
+  font-weight: 900;
+}
+
+/* ==========================================================================
+   3. NOUVELLE GRILLE UNIFORME ET AUTOMATIQUE (PARFAIT POUR L'AJOUT DE CARTES)
+   ========================================================================== */
+
+/* Conteneur principal de la grille */
+.real-grid {
+  display: grid; 
+  /* "repeat(auto-fill, minmax(...))" crée automatiquement autant de colonnes de taille égale que l'écran le permet */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+  gap: 15px; /* Un espacement un peu plus large (15px) rend le catalogue uniforme plus aéré et pro */
+}
+
+/* Style de base d'une carte : elles ont TOUTES la même hauteur fixe désormais */
+.ri { 
+  position: relative; 
+  overflow: hidden; 
+  cursor: pointer; 
+  height: 250px; /* Toutes les cartes (actuelles et futures) feront exactement 250px de haut */
+}
+
+/* SUPPRESSION DES .ri:nth-child(1), .ri:nth-child(2)... 
+  Plus besoin de figer les positions ! Les cartes se placent naturellement les unes après les autres.
+*/
+
+/* ==========================================================================
+   4. GESTION DES MÉDIAS & HOVER EFFECTS (EFFETS DE SURVOL)
+   ========================================================================== */
+
+/* Gestion des images et vidéos à l'intérieur des cartes */
+.ri img, .ri video { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  transition: transform .6s ease; 
+  filter: brightness(.9); 
+}
+
+/* Effet de zoom et éclaircissement au survol de la carte */
+.ri:hover img, .ri:hover video { 
+  transform: scale(1.08); 
+  filter: brightness(1);    
+}
+
+/* Calque sombre dégradé transparent en bas de chaque carte */
+.ri-ov {
+  position: absolute; 
+  inset: 0;
+  background: linear-gradient(to top, rgba(10,10,10,.9) 0%, rgba(10,10,10,.2) 55%, transparent 100%);
+  display: flex; 
+  flex-direction: column; 
+  justify-content: flex-end; 
+  padding: 20px;
+  opacity: 0; 
+  transition: opacity .4s;
+  z-index: 1;
+}
+
+/* Fait apparaître les textes de description au survol */
+.ri:hover .ri-ov { 
+  opacity: 1; 
+}
+
+/* Bordure fine couleur Or qui apparaît autour de la carte au survol */
+.ri::after { 
+  content: ''; 
+  position: absolute; 
+  inset: 0; 
+  border: 2px solid transparent; 
+  transition: border-color .3s; 
+  pointer-events: none; 
+  z-index: 2; 
+}
+.ri:hover::after { 
+  border-color: rgba(163, 118, 61, .5); 
+}
+
+/* Typographies intérieures des cartes */
+.ri-cat { 
+  font-size: 7.5px; 
+  letter-spacing: .28em; 
+  text-transform: uppercase; 
+  color: var(--gold-xl); 
+  font-weight: 800; 
+  margin-bottom: 4px; 
+}
+.ri-name { 
+  font-family: 'Playfair Display', serif; 
+  font-size: 16px; 
+  font-weight: 700; 
+  color: var(--white); 
+}
+.ri-sub { 
+  font-size: 10.5px; 
+  color: rgba(255, 255, 255, .5); 
+  margin-top: 2px; 
+}
+
+/* ==========================================================================
+   5. RESPONSIVE DESIGN SIMPLIFIÉ (AUTOMATIQUE GRÂCE À MINMAX)
+   ========================================================================== */
+
+@media(max-width: 600px) { 
+  .real-grid { 
+    /* Sur petit téléphone, on force l'affichage sur une seule colonne propre */
+    grid-template-columns: 1fr; 
+  } 
+  .ri { 
+    height: 230px; /* Hauteur ajustée pour les téléphones */
+  } 
+}

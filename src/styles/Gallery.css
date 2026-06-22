@@ -1,0 +1,19 @@
+.insta-wrap { background:var(--black); padding:70px 0; border-top:1px solid rgba(163,118,61,.15); border-bottom:1px solid rgba(163,118,61,.15); }
+.insta-inner { padding:0 60px; display:flex; align-items:center; justify-content:space-between; margin-bottom:36px; flex-wrap:wrap; gap:16px; }
+.insta-tag::before { background:var(--gold) !important; }
+.insta-tag span { color:var(--gold-xl) !important; }
+.insta-title { color:var(--white) !important; }
+.insta-title em { color:var(--gold-xl) !important; }
+.insta-follow { display:flex; align-items:center; gap:8px; padding:10px 22px; border:1px solid rgba(163,118,61,.4); color:var(--gold-xl); font-size:10.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; transition:all .3s; }
+.insta-follow:hover { background:rgba(163,118,61,.1); border-color:var(--gold-l); }
+.insta-track-wrap { overflow:hidden; }
+.insta-track { display:flex; gap:3px; animation:scroll-insta 34s linear infinite; }
+.insta-track:hover { animation-play-state:paused; }
+@keyframes scroll-insta { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+.insta-item { position:relative; overflow:hidden; flex-shrink:0; width:200px; height:200px; }
+.insta-item img { width:100%; height:100%; object-fit:cover; transition:transform .5s ease; filter:brightness(.88); }
+.insta-item:hover img { transform:scale(1.1); filter:brightness(1); }
+.insta-ov { position:absolute; inset:0; background:rgba(10,10,10,.6); display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .3s; border:1px solid rgba(163,118,61,.3); }
+.insta-item:hover .insta-ov { opacity:1; }
+.insta-ov i { font-size:1.6rem; color:var(--gold-xl); }
+@media(max-width:768px){ .insta-inner{padding:0 24px;} .insta-item{width:150px;height:150px;} }

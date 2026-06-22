@@ -1,0 +1,141 @@
+/* ================================================================
+   MAIMOUNA COMPANY — Global CSS
+   Palette exacte du logo : Noir #0A0A0A + Or #A3763D / #C9903A
+   ================================================================ */
+:root {
+  /* ── Couleurs logo ── */
+  --black:    #0A0A0A;
+  --black-2:  #111111;
+  --black-3:  #1A1A1A;
+  --black-4:  #222222;
+  --gold:     #A3763D;
+  --gold-l:   #C9903A;
+  --gold-xl:  #E8B96A;
+  --gold-dim: rgba(163,118,61,.15);
+  --gold-glow:rgba(163,118,61,.30);
+
+  /* ── Neutres ── */
+  --white:    #FFFFFF;
+  --cream:    #FAF6EE;
+  --gray:     #F3EFE8;
+  --gray-2:   #E8E2D8;
+  --text:     #E8DCC8;
+  --muted:    #A89880;
+  --light:    #7A6E5F;
+
+  /* ── Ombres ── */
+  --sh:    0 4px 20px rgba(0,0,0,.3);
+  --sh-md: 0 10px 40px rgba(0,0,0,.45);
+  --sh-lg: 0 20px 70px rgba(0,0,0,.6);
+  --sh-gold: 0 8px 32px rgba(163,118,61,.35);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--black);
+  color: var(--text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+img  { display: block; max-width: 100%; }
+a    { text-decoration: none; color: inherit; }
+button { cursor: pointer; font-family: inherit; border: none; background: none; }
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+/* ── Animations reveal ── */
+.reveal { opacity:0; transform:translateY(34px); transition:opacity .85s ease,transform .85s ease; }
+.reveal.on { opacity:1; transform:translateY(0); }
+.d1{transition-delay:.10s} .d2{transition-delay:.20s}
+.d3{transition-delay:.30s} .d4{transition-delay:.40s}
+
+/* ── Boutons globaux ── */
+.btn-gold {
+  padding: 13px 34px;
+  background: linear-gradient(135deg, var(--gold-l), var(--gold));
+  color: var(--black);
+  font-size: 10.5px; font-weight: 900; letter-spacing: .2em; text-transform: uppercase;
+  border-radius: 1px; display: inline-block; cursor: pointer;
+  transition: all .3s;
+  box-shadow: var(--sh-gold);
+}
+.btn-gold:hover { background: linear-gradient(135deg,var(--gold-xl),var(--gold-l)); transform:translateY(-3px); box-shadow:0 14px 40px rgba(163,118,61,.5); }
+
+.btn-outline-w {
+  padding: 12px 32px;
+  border: 1.5px solid rgba(255,255,255,.45);
+  color: var(--white);
+  font-size: 10.5px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+  border-radius: 1px; display: inline-block;
+  transition: all .3s;
+}
+.btn-outline-w:hover { border-color: var(--gold-xl); color: var(--gold-xl); transform:translateY(-3px); }
+
+.btn-dark {
+  padding: 12px 30px;
+  background: var(--black);
+  color: var(--gold-l);
+  font-size: 10.5px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase;
+  border-radius: 1px; display: inline-block;
+  border: 1px solid var(--gold);
+  transition: all .3s;
+}
+.btn-dark:hover { background: var(--gold); color: var(--black); transform:translateY(-2px); }
+
+/* ── Bouton secondaire (lien texte or) ── */
+.btn-p {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 11px 26px;
+  border: 1px solid rgba(163,118,61,.4);
+  color: var(--gold-xl);
+  font-size: 10.5px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase;
+  transition: all .3s;
+}
+.btn-p:hover {
+  background: rgba(163,118,61,.1);
+  border-color: var(--gold-l);
+  transform: translateY(-2px);
+}
+
+/* ── Section layout ── */
+.section-wrap, .sw { padding: 100px 60px; }
+
+.s-tag { display:inline-flex; align-items:center; gap:10px; margin-bottom:14px; }
+.s-tag::before { content:''; width:26px; height:2px; background:var(--gold); }
+.s-tag span { font-size:9px; letter-spacing:.35em; text-transform:uppercase; color:var(--gold-l); font-weight:800; }
+
+.s-title { font-family:'Playfair Display',serif; font-size:clamp(30px,4vw,52px); font-weight:900; line-height:1.05; margin-bottom:14px; color:var(--white); }
+.s-title em  { font-style:italic; color:var(--gold-l); }
+.s-title .wh { color:var(--white); }
+
+.s-desc { font-size:14px; color:var(--muted); line-height:1.85; max-width:490px; }
+
+/* ── WhatsApp flottant & back-to-top ── */
+.wa-float {
+  position:fixed; bottom:28px; right:28px; z-index:500;
+  width:54px; height:54px; background:#25D366; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.5rem; color:#fff;
+  box-shadow:0 6px 24px rgba(37,211,102,.4);
+  animation:wa-bounce 2s ease-in-out infinite;
+  text-decoration:none; transition:transform .3s;
+}
+.wa-float:hover { transform:scale(1.12); animation:none; }
+@keyframes wa-bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+
+#btt {
+  position:fixed; bottom:28px; right:90px; z-index:500;
+  width:42px; height:42px; background:var(--gold); color:var(--black);
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-size:.9rem; box-shadow:var(--sh-gold);
+  opacity:0; transform:translateY(10px); transition:all .3s;
+  cursor:pointer; border:none;
+}
+#btt.show { opacity:1; transform:translateY(0); }
+#btt:hover { background:var(--gold-xl); }
+
+@media(max-width:1100px){ .section-wrap, .sw{ padding:80px 36px; } }
+@media(max-width:768px) { .section-wrap, .sw{ padding:60px 24px; } }

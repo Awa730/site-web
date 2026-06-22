@@ -1,0 +1,41 @@
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.video-card {
+  width: 100%;
+  background: rgba(163,118,61,.6);;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.video-card__video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+.video-card__title {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 6px;
+  line-height: 1.3;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .video-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .video-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
