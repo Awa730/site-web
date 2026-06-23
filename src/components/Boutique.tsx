@@ -5,92 +5,103 @@ import {
 
 import '../styles/Boutique.css'
 
-const ITEMS = [
-  { 
-  cat: 'sport',   
-  catL: 'Sportswear',  
-  name: 'Maillots Officiels (ASC PETIT COLOBANE)', 
-  sub: 'Sublimation premium et marquage de logos club haute fidélité', 
-  img: p10
-},
- { 
-  cat: 'print', 
-  catL: 'Marquage Textile', 
-  name: 'T-shirt Hommage (Modèle Cheikh Ibra Fall)', 
-  sub: 'Marquage graphique bi-couleur haute définition et lettrage personnalisé sur manches', 
-  img: p30
-},
-  { 
-  cat: 'sport', 
-  catL: 'Sportswear & Équipements', 
-  name: 'Pack Club Complet (Modèle F.C.N Or & Blanc)', 
-  sub: 'Ensemble assorti comprenant maillot officiel, débardeur d\'entraînement et short marqué', 
-  img: p50
-},
-{ 
-  cat: 'print', 
-  catL: 'Marquage Textile', 
-  name: 'T-shirt Personnalisé (Modèle NOREYNI)', 
-  sub: 'Impression par sublimation haute définition avec graphismes complexes et portraits photo', 
-  img: p32
-},
-{ 
-  cat: 'sport', 
-  catL: 'Sportswear & Équipements', 
-  name: 'Équipement de Foot (Modèle TALENT D\'AFRIQUE)', 
-  sub: 'Ensemble maillot bleu et short gris personnalisé avec sublimation et logo club', 
-  img: p52
-},
-{ 
-  cat: 'print', 
-  catL: 'Marquage Textile', 
-  name: 'T-shirt Hommage (Modèle Borom Touba)', 
-  sub: 'Impression graphique premium avec lettrages et citations stylisés sur fond contrasté', 
-  img: p34
-},
-{ 
-  cat: 'print', 
-  catL: 'Marquage Textile', 
-  name: 'T-shirt Hommage (Modèle Serigne Fallou)', 
-  sub: 'Sublimation intégrale grand format avec impression portrait haute définition et lettrages stylisés', 
-  img: p35
-},
-{ 
-  cat: 'sport', 
-  catL: 'Sportswear & Équipements', 
-  name: 'Pack Club Complet (Modèle Vert Fluo & Noir)', 
-  sub: 'Ensemble assorti comprenant maillot officiel, débardeur d\'entraînement, short et manchons personnalisés', 
-  img: p36
-},
-{ 
-  cat: 'sport', 
-  catL: 'Sportswear & Équipements', 
-  name: 'Pack Club Complet (Modèle Bleu, Blanc & Gris)', 
-  sub: 'Confection sur-mesure : Veste de survêtement, pantalon, t-shirts, débardeur et short assortis', 
-  img: p37
-},
-{ 
-  cat: 'sport', 
-  catL: 'Sportswear & Équipements', 
-  name: 'Maillots de Supporters (Modèle ASC KANDAALU - Portrait)', 
-  sub: 'Personnalisation et marquage de maillots pour événements, associations et comités de supporters', 
-  img: p38
-},
-{ 
-  cat: 'sport', 
-  catL: 'Sportswear & Équipements', 
-  name: 'Ensemble Survêtement & Maillot (Modèle Bleu & Blanc)', 
-  sub: 'Pack club incluant veste zippée, pantalon de jogging et t-shirt technique assorti', 
-  img: p39
-},
-{ 
-  cat: 'sport', 
-  catL: 'Sportswear & Équipements', 
-  name: 'Survêtement Officiel (Modèle PASTEF Vert & Blanc)', 
-  sub: 'Confection premium de vestes zippées et pantalons assortis avec marquage logo politique / associatif', 
-  img: p40
+type BoutiqueItem = {
+  cat: string
+  catL: string
+  name: string
+  sub: string
+  img: string
+  badge?: string
+  price?: string
 }
+
+const ITEMS: BoutiqueItem[] = [
+  {
+    cat: 'sport',
+    catL: 'Sportswear',
+    name: 'Maillots Officiels (ASC PETIT COLOBANE)',
+    sub: 'Sublimation premium et marquage de logos club haute fidélité',
+    img: p10,
+  },
+  {
+    cat: 'print',
+    catL: 'Marquage Textile',
+    name: 'T-shirt Hommage (Modèle Cheikh Ibra Fall)',
+    sub: 'Marquage graphique bi-couleur haute définition et lettrage personnalisé sur manches',
+    img: p30,
+  },
+  {
+    cat: 'sport',
+    catL: 'Sportswear & Équipements',
+    name: 'Pack Club Complet (Modèle F.C.N Or & Blanc)',
+    sub: "Ensemble assorti comprenant maillot officiel, débardeur d'entraînement et short marqué",
+    img: p50,
+  },
+  {
+    cat: 'print',
+    catL: 'Marquage Textile',
+    name: 'T-shirt Personnalisé (Modèle NOREYNI)',
+    sub: 'Impression par sublimation haute définition avec graphismes complexes et portraits photo',
+    img: p32,
+  },
+  {
+    cat: 'sport',
+    catL: 'Sportswear & Équipements',
+    name: "Équipement de Foot (Modèle TALENT D'AFRIQUE)",
+    sub: 'Ensemble maillot bleu et short gris personnalisé avec sublimation et logo club',
+    img: p52,
+  },
+  {
+    cat: 'print',
+    catL: 'Marquage Textile',
+    name: 'T-shirt Hommage (Modèle Borom Touba)',
+    sub: 'Impression graphique premium avec lettrages et citations stylisés sur fond contrasté',
+    img: p34,
+  },
+  {
+    cat: 'print',
+    catL: 'Marquage Textile',
+    name: 'T-shirt Hommage (Modèle Serigne Fallou)',
+    sub: 'Sublimation intégrale grand format avec impression portrait haute définition et lettrages stylisés',
+    img: p35,
+  },
+  {
+    cat: 'sport',
+    catL: 'Sportswear & Équipements',
+    name: 'Pack Club Complet (Modèle Vert Fluo & Noir)',
+    sub: "Ensemble assorti comprenant maillot officiel, débardeur d'entraînement, short et manchons personnalisés",
+    img: p36,
+  },
+  {
+    cat: 'sport',
+    catL: 'Sportswear & Équipements',
+    name: 'Pack Club Complet (Modèle Bleu, Blanc & Gris)',
+    sub: 'Confection sur-mesure : Veste de survêtement, pantalon, t-shirts, débardeur et short assortis',
+    img: p37,
+  },
+  {
+    cat: 'sport',
+    catL: 'Sportswear & Équipements',
+    name: 'Maillots de Supporters (Modèle ASC KANDAALU - Portrait)',
+    sub: 'Personnalisation et marquage de maillots pour événements, associations et comités de supporters',
+    img: p38,
+  },
+  {
+    cat: 'sport',
+    catL: 'Sportswear & Équipements',
+    name: 'Ensemble Survêtement & Maillot (Modèle Bleu & Blanc)',
+    sub: 'Pack club incluant veste zippée, pantalon de jogging et t-shirt technique assorti',
+    img: p39,
+  },
+  {
+    cat: 'sport',
+    catL: 'Sportswear & Équipements',
+    name: 'Survêtement Officiel (Modèle PASTEF Vert & Blanc)',
+    sub: 'Confection premium de vestes zippées et pantalons assortis avec marquage logo politique / associatif',
+    img: p40,
+  },
 ]
+
 
 export default function Boutique() {
   return (

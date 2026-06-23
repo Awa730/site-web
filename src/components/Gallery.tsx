@@ -15,16 +15,20 @@ export default function Gallery() {
           <i className="fa-brands fa-instagram" /> @maimounacompany
         </a>
       </div>
-      <div className="insta-track-wrap">
-        <div className="insta-track">
-          {[...PHOTOS, ...PHOTOS].map((src, i) => (
-            <div className="insta-item" key={i}>
-              <img src={src} alt="Galerie" loading="lazy" />
-              <div className="insta-ov"><i className="fa-brands fa-whatsapp" /></div>
-            </div>
-          ))}
-        </div>
-      </div>
+       <div className="insta-track-wrap">
+         <div className="insta-track">
+           {[...Array(2)].map((_, setIndex) => (
+             <div className="insta-set" key={setIndex}>
+               {PHOTOS.map((src, i) => (
+                 <div className="insta-item" key={i}>
+                   <img src={src} alt="Galerie" loading="lazy" />
+                   <div className="insta-ov"><i className="fa-brands fa-whatsapp" /></div>
+                 </div>
+               ))}
+             </div>
+           ))}
+         </div>
+       </div>
     </div>
   )
 }
