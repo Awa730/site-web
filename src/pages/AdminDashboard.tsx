@@ -147,6 +147,13 @@ export default function AdminDashboard() {
             <i className="fa-solid fa-image" />
             <span>Photos</span>
           </button>
+          <button
+            className="sidebar-link sidebar-logout-link"
+            onClick={handleLogout}
+          >
+            <i className="fa-solid fa-arrow-right-from-bracket" />
+            <span>Deconnexion</span>
+          </button>
         </nav>
 
         <div className="sidebar-footer">

@@ -564,7 +564,20 @@
     border-top: 1px solid rgba(163,118,61,.15);
   }
   .sidebar-logo,
-  .sidebar-footer {
+.sidebar-logout-link {
+  color: #e57373;
+  border-top: 1px solid rgba(163,118,61,.12);
+  margin-top: 8px;
+  padding-top: 14px;
+  border-radius: 0;
+}
+
+.sidebar-logout-link:hover {
+  color: #ef5350;
+  background: rgba(229,115,115,.06);
+}
+
+.sidebar-footer {
     display: none;
   }
   .sidebar-nav {
