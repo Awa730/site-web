@@ -1,5 +1,8 @@
 {
   "build": {
     "distDir": "dist"
-  }
+  },
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
+  ]
 }

@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import { Routes, Route, Navigate } from 'react-router-dom'
+import ProtectedRoute from './components/ProtectedRoute'
 import Preloader    from './components/Preloader'
 import Navbar       from './components/Navbar'
 import Hero         from './components/Hero'
@@ -11,9 +13,13 @@ import Blog         from './components/Blog'
 import Temoignages  from './components/Temoignages'
 import Contact      from './components/Contact'
 import Footer       from './components/Footer'
+import AdminLogin   from './pages/AdminLogin'
+import AdminDashboard from './pages/AdminDashboard'
+import { useViewTracking } from './hooks/useViewTracking'
 import './index.css'
 
-export default function App() {
+function SitePage() {
+  useViewTracking()
   const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
@@ -76,7 +82,6 @@ export default function App() {
         
         <Gallery />
         
-        {/* L'ID "blog" est maintenant bien présent ici pour la Navbar */}
         <section id="blog">
           <Blog />
         </section>
@@ -97,5 +102,23 @@ export default function App() {
         <i className="fa-solid fa-arrow-up" />
       </button>
     </>
+  )
+}
+
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<SitePage />} />
+      <Route path="/admin-login" element={<AdminLogin />} />
+      <Route
+        path="/admin"
+        element={
+          <ProtectedRoute>
+            <AdminDashboard />
+          </ProtectedRoute>
+        }
+      />
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
   )
 }

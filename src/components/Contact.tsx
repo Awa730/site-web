@@ -1,12 +1,29 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import '../styles/Contact.css'
+import { addCommande, getCommandes } from '../lib/storage'
 
 export default function Contact() {
   const [sent, setSent] = useState(false)
+  const formRef = useRef<HTMLFormElement>(null)
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+    if (!formRef.current) return
+
+    const formData = new FormData(formRef.current)
+    const payload = {
+      prenom: String(formData.get('prenom') || '').trim(),
+      nom: String(formData.get('nom') || '').trim(),
+      contact: String(formData.get('contact') || '').trim(),
+      type: String(formData.get('type') || '').trim(),
+      message: String(formData.get('message') || '').trim(),
+    }
+    addCommande(payload)
+    console.log('[Contact] Commande enregistree:', payload)
+    console.log('[Contact] Commandes actuelles:', getCommandes())
+
     setSent(true)
+    formRef.current.reset()
     setTimeout(() => setSent(false), 4000)
   }
 
@@ -21,7 +38,7 @@ export default function Contact() {
         <div className="reveal">
           {[
             { ic:'📍', lbl:'Adresse', val:'Atelier Maimouna Company\nDakar, Poste Thiaroye, Sips' },
-            { ic:'📞', lbl:'Téléphone / WhatsApp', val:'+221 77 497 44 29/ 77 498 31 80' },
+            { ic:'📞', lbl:'Telephone / WhatsApp', val:'+221 77 497 44 29/ 77 498 31 80' },
             { ic:'✉️', lbl:'Email', val:'niangmalick01@gmail.com' },
             { ic:'🕐', lbl:"Horaires d'Ouverture", val:'Lun — Sam : 09h00 → 21h00\n Dimanche sur rendez-vous' },
           ].map(item => (
@@ -48,22 +65,34 @@ export default function Contact() {
         </div>
         <div className="ct-form reveal d1">
           <div className="ct-form-title">Envoyez-nous <span>un message</span></div>
-          <form onSubmit={handleSubmit}>
+          <form ref={formRef} onSubmit={handleSubmit}>
             <div className="frow">
-              <div className="fg"><label>Prénom</label><input type="text" placeholder="Votre prénom" /></div>
-              <div className="fg"><label>Nom</label><input type="text" placeholder="Votre nom" /></div>
+              <div className="fg">
+                <label>Prenom</label>
+                <input type="text" name="prenom" placeholder="Votre prenom" required />
+              </div>
+              <div className="fg">
+                <label>Nom</label>
+                <input type="text" name="nom" placeholder="Votre nom" required />
+              </div>
             </div>
-            <div className="fg"><label>Email ou téléphone</label><input type="text" placeholder="malick@gmail.com ou +221 77..." /></div>
+            <div className="fg">
+              <label>Email ou telephone</label>
+              <input type="text" name="contact" placeholder="malick@gmail.com ou +221 77..." required />
+            </div>
             <div className="fg">
               <label>Type de commande</label>
-              <select>
+              <select name="type">
                 <option value="" disabled>Sélectionnez un service</option>
-                {['Confection sur mesure','Sportswear / Maillots','Tenues professionnelles','Inforgraphie','Blousons','Commande en gros','Tableau Mural','Décoration Intérieure','Autre'].map(o => <option key={o}>{o}</option>)}
+                {['Confection sur mesure','Sportswear / Maillots','Tenues professionnelles','Inforgraphie','Blousons','Commande en gros','Tableau Mural','Decoration Interieure','Autre'].map(o => <option key={o}>{o}</option>)}
               </select>
             </div>
-            <div className="fg"><label>Message</label><textarea rows={4} placeholder="Décrivez votre projet, quantités, délais souhaités..." /></div>
+            <div className="fg">
+              <label>Message</label>
+              <textarea name="message" rows={4} placeholder="Decrivez votre projet, quantites, delais souhaites..." required />
+            </div>
             <button type="submit" className={`btn-submit${sent?' sent':''}`}>
-              {sent ? <><i className="fa-solid fa-circle-check" /> Message envoyé !</> : <>Envoyer ma demande <i className="fa-solid fa-paper-plane" /></>}
+              {sent ? <><i className="fa-solid fa-circle-check" /> Message envoye !</> : <>Envoyer ma demande <i className="fa-solid fa-paper-plane" /></>}
             </button>
           </form>
         </div>

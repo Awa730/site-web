@@ -32,6 +32,7 @@ export default function Footer() {
           <a href="#">Mentions légales</a>
           <a href="#">Confidentialité</a>
           <a href="#">CGV</a>
+          <a href="/admin-login" className="ft-admin-link">Administration</a>
         </div>
       </div>
     </footer>
