@@ -133,6 +133,20 @@ export default function AdminDashboard() {
               </span>
             )}
           </button>
+          <button
+            className="sidebar-link"
+            onClick={() => navigate('/admin/videos')}
+          >
+            <i className="fa-solid fa-video" />
+            <span>Videos</span>
+          </button>
+          <button
+            className="sidebar-link"
+            onClick={() => navigate('/admin/photos')}
+          >
+            <i className="fa-solid fa-image" />
+            <span>Photos</span>
+          </button>
         </nav>
 
         <div className="sidebar-footer">

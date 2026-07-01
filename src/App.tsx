@@ -15,6 +15,8 @@ import Contact      from './components/Contact'
 import Footer       from './components/Footer'
 import AdminLogin   from './pages/AdminLogin'
 import AdminDashboard from './pages/AdminDashboard'
+import AdminVideos from './pages/AdminVideos'
+import AdminPhotos from './pages/AdminPhotos'
 import { useViewTracking } from './hooks/useViewTracking'
 import './index.css'
 
@@ -110,14 +112,17 @@ export default function App() {
     <Routes>
       <Route path="/" element={<SitePage />} />
       <Route path="/admin-login" element={<AdminLogin />} />
-      <Route
-        path="/admin"
-        element={
-          <ProtectedRoute>
-            <AdminDashboard />
-          </ProtectedRoute>
-        }
-      />
+      <Route path="/admin" element={<AdminDashboard />} />
+      <Route path="/admin/videos" element={
+        <ProtectedRoute>
+          <AdminVideos />
+        </ProtectedRoute>
+      } />
+      <Route path="/admin/photos" element={
+        <ProtectedRoute>
+          <AdminPhotos />
+        </ProtectedRoute>
+      } />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   )
