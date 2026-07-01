@@ -51,6 +51,34 @@ nav.scrolled .nav-logo img { border-color:var(--gold-l); box-shadow:0 0 20px var
   box-shadow:0 4px 16px rgba(163,118,61,.3);
 }
 .btn-nav:hover { background:linear-gradient(135deg,var(--gold-xl),var(--gold-l)); transform:translateY(-2px); box-shadow:var(--sh-gold); }
+
+.nav-actions {
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.admin-nav-link {
+  width:38px;
+  height:38px;
+  border:1px solid rgba(163,118,61,.3);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--gold-l);
+  font-size:15px;
+  transition:all .3s;
+  background:rgba(10,10,10,.6);
+}
+
+.admin-nav-link:hover {
+  background:var(--gold);
+  color:var(--black);
+  border-color:var(--gold);
+  transform:translateY(-2px);
+  box-shadow:0 0 20px rgba(163,118,61,.4);
+}
 /* Hamburger */
 .hamburger { display:none; flex-direction:column; gap:5px; padding:4px; }
 .hamburger span { width:24px; height:2px; background:var(--gold-l); display:block; border-radius:2px; transition:all .3s; }
@@ -73,6 +101,16 @@ nav.scrolled .nav-logo img { border-color:var(--gold-l); box-shadow:0 0 20px var
   font-family:'Nunito',sans-serif !important; font-size:11px !important;
   font-weight:900 !important; letter-spacing:.18em !important;
   text-transform:uppercase !important; border-radius:1px;
+}
+
+.mobile-admin-link {
+  margin-top:10px;
+  color:var(--gold-l) !important;
+  font-family:'Nunito',sans-serif !important;
+  font-size:11px !important;
+  font-weight:700 !important;
+  letter-spacing:.15em !important;
+  text-transform:uppercase !important;
 }
 .close-menu {
   position:absolute; top:24px; right:24px; font-size:1.4rem;
