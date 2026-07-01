@@ -155,13 +155,6 @@ export default function AdminDashboard() {
             <span>Deconnexion</span>
           </button>
         </nav>
-
-        <div className="sidebar-footer">
-          <button className="sidebar-logout" onClick={handleLogout}>
-            <i className="fa-solid fa-arrow-right-from-bracket" />
-            <span>Deconnexion</span>
-          </button>
-        </div>
       </aside>
 
       <main className="admin-main">
